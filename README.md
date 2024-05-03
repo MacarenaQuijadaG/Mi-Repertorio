@@ -5,6 +5,16 @@
 La escuela de música “E-Sueño” está motivando a sus estudiantes de canto a presentarse en vivo y se puso en contacto con el restaurante del sector para usar su tarima e 
 iniciar un calendario de presentaciones. 
 Para conocer y gestionar las canciones que cantarán sus estudiantes, la escuela contrató a un desarrollador freelance para la creación de una aplicación tipo CRUD.
+
+El servidor tiene las siguientes rutas:
+
+- POST /cancion: Recibe los datos correspondientes a una cancion y realiza la insercion en la tabla canciones.
+
+- GET /canciones: Devuelve un JSON con los registros de la tabla canciones.
+
+- PUT /cancion: Recibe los datos de una cancion que se desea editar y ejecuta una funcion asincrona para hacer la consulta SQL y actualice ese registro de la tabla canciones.
+
+- DELETE /cancion: Recibe por queryString el id de una cancion y realiza una consulta SQL a traves de una funcion asincrona para eliminarla de la base de datos.
 ## Visuales 
 
 ![1](https://github.com/MacarenaQuijadaG/Mi-Repertorio/assets/50925916/78a01ed6-434e-43e2-b7c6-205730e9b123)
