@@ -1,0 +1,15 @@
+{
+  "name": "desafio-mi-repertorio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverExpress.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Macarena Quijada",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
