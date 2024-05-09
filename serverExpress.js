@@ -21,15 +21,33 @@ app.use(bodyParser.json());
 // funcion para agregar la cancion
 async function agregar(titulo, artista, tono) {
     try {
-        const result = await pool.query({ 
-            text: 'INSERT INTO canciones (titulo, artista, tono) VALUES ($1, $2, $3) RETURNING *',
+        // Verificar si algún campo está vacío
+        if (!titulo || !artista || !tono) {
+            throw new Error('Todos los campos deben ser completados');
+        }
+
+        // Verificar si el registro ya existe
+        const existencia = await pool.query({
+            text: 'SELECT * FROM canciones WHERE titulo = $1 AND artista = $2 AND tono = $3',
             values: [titulo, artista, tono]
         });
-        return result.rows[0];
+
+        // Si ya existe, retornar el registro existente
+        if (existencia.rows.length > 0) {
+            return existencia.rows[0];
+        } else {
+            // Si no existe, insertar el nuevo registro
+            const result = await pool.query({ 
+                text: 'INSERT INTO canciones (titulo, artista, tono) VALUES ($1, $2, $3) RETURNING *',
+                values: [titulo, artista, tono]
+            });
+            return result.rows[0];
+        }
     } catch (error) {
         throw error;
     }
 }
+
 
 // Función para obtener todos los registros de la tabla canciones
 async function todos() {
