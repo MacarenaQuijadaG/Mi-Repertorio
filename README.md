@@ -46,7 +46,7 @@ Instrucciones y ejemplos para ejecutar el conjunto de pruebas.
 
 ####  node serverExpress.js complementando con esta informacion:
 
-- node serverExpress 
+- node serverExpress.js
 
 ## Despliegue 📦
 
